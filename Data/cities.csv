@@ -1,32 +1,33 @@
-Aguascalientes, 21.876, -102.296
-Mexicali, 32.663333, -115.467778
-LaPaz, 24.142222, -110.310833
-SanFranciscoDeCampeche, 19.85, -90.530556
-TuxtlaGutiérrez, 16.752778, -93.116667
-Chihuahua, 28.635278, -106.088889
-Saltillo, 25.423056, -100.991944
-Colima, 19.243333, -103.724722
-VictoriaDeDurango, 24.025, -104.6675
-Guanajuato, 21.017778, -101.256667
-ChilpancingoDeLosBravo, 17.55, -99.5
-PachucaDeSoto, 20.1, -98.75
-Guadalajara, 20.676667, -103.3475
-TolucaDeLerdo, 19.2925, -99.656944
-CiudadDeMexico, 19.433333, -99.133333
-Morelia, 19.768333, -101.189444
-Cuernavaca, 18.918611, -99.234167
-Tepic, 21.508333, -104.893056
-Monterrey, 25.666667, -100.3
-OaxacaDeJuárez, 17.060556, -96.725278
-PueblaDeZaragoza, 19.033333, -98.183333
-SantiagoDeQuerétaro, 20.5875, -100.392778
-Chetumal, 18.503611, -88.305278
-SanLuisPotosí, 22.151111, -100.976111
-CuliacánRosales, 24.806944, -107.393889
-Hermosillo, 29.098889, -110.954167
-Villahermosa, 17.989167, -92.928056
-CiudadVictoria, 23.738889, -99.143056
-TlaxcalaDeXicohténcatl, 19.3125, -98.24
-Xalapa-Enríquez, 19.54, -96.933056
-Mérida, 20.97, -89.62
-Zacatecas, 22.773611, -102.573611
+name,x,y,GC,GM
+Aguascalientes,21.876,-102.296,-1,1
+Mexicali,32.663333,-115.467778,1,1
+LaPaz,24.142222,-110.310833,1,1
+SanFranciscoDeCampeche,19.85,-90.530556,-1,-1
+TuxtlaGutiérrez,16.752778,-93.116667,-1,1
+Chihuahua,28.635278,-106.088889,-1,1
+Saltillo,25.423056,-100.991944,-1,1
+Colima,19.243333,-103.724722,-1,1
+VictoriaDeDurango,24.025,-104.6675,-1,1
+Guanajuato,21.017778,-101.256667,-1,1
+ChilpancingoDeLosBravo,17.55,-99.5,-1,1
+PachucaDeSoto,20.1,-98.75,-1,1
+Guadalajara,20.676667,-103.3475,-1,1
+TolucaDeLerdo,19.2925,-99.656944,-1,1
+CiudadDeMexico,19.433333,-99.133333,-1,1
+Morelia,19.768333,-101.189444,-1,1
+Cuernavaca,18.918611,-99.234167,-1,1
+Tepic,21.508333,-104.893056,-1,1
+Monterrey,25.666667,-100.3,-1,1
+OaxacaDeJuárez,17.060556,-96.725278,-1,1
+PueblaDeZaragoza,19.033333,-98.183333,-1,1
+SantiagoDeQuerétaro,20.5875,-100.392778,-1,1
+Chetumal,18.503611,-88.305278,-1,-1
+SanLuisPotosí,22.151111,-100.976111,-1,1
+CuliacánRosales,24.806944,-107.393889,-1,1
+Hermosillo,29.098889,-110.954167,-1,1
+Villahermosa,17.989167,-92.928056,-1,-1
+CiudadVictoria,23.738889,-99.143056,-1,1
+TlaxcalaDeXicohténcatl,19.3125,-98.24,-1,1
+Xalapa-Enríquez,19.54,-96.933056,-1,1
+Mérida,20.97,-89.62,-1,-1
+Zacatecas,22.773611,-102.573611,-1,1
