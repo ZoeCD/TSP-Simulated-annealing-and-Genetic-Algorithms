@@ -3,7 +3,7 @@ from matplotlib.animation import FuncAnimation
 import numpy as np
 import pandas as pd
 
-def animateTSP(history, points):
+def animateTSP(history, points, speed):
     ''' animate the solution over time
         Parameters
         ----------
@@ -14,7 +14,7 @@ def animateTSP(history, points):
     '''
 
     ''' approx 1500 frames for animation '''
-    key_frames_mult = len(history) // 1500
+    key_frames_mult = len(history) // speed
 
     fig, ax = plt.subplots()
     ''' path is a line coming through all the nodes '''

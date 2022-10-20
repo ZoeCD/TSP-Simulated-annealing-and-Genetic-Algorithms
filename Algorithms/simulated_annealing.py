@@ -98,7 +98,7 @@ class SimulatedAnnealing:
               round((self.initial_weight - self.min_weight) / (self.initial_weight), 4) * 100, '%')
 
     def animateSolutions(self):
-       animateTSP(self.solution_history, self.coords)
+       animateTSP(self.solution_history, self.coords, 1500)
 
     def plotLearning(self):
         plt.plot([i for i in range(len(self.weight_list))], self.weight_list)

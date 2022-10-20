@@ -1,5 +1,4 @@
 
-
 from Helpers import nearestNeighbourSolution, vectorToDistMatrix, animateTSP
 import numpy as np
 import random
@@ -11,25 +10,11 @@ import matplotlib.pyplot as plt
 
 class GeneticAlgorithm:
     def __init__(self, cities):
-        ''' animate the solution over time
-            Parameters
-            ----------
-            coords: array_like
-                list of coordinates
-            temp: float
-                initial temperature
-            alpha: float
-                rate at which temp decreases
-            stopping_temp: float
-                temerature at which annealing process terminates
-            stopping_iter: int
-                interation at which annealing process terminates
-        '''
-
         self.cities = cities
         self.n_cities = len(cities)
-        self.n_population = 25
-        self.mutation_rate = 0.4
+        self.n_population = 100
+        self.mutation_rate = 0.5
+        self.solution_history = []
 
     def initiate(self):
         population_set = self.genesis(self.cities["name"], self.n_population)
@@ -39,7 +24,7 @@ class GeneticAlgorithm:
         mutated_pop = self.mutate_population(new_population_set)
 
         best_solution = [-1, np.inf, np.array([])]
-        for i in range(100):
+        for i in range(1000):
             if i % 10 == 0: print(i, fitnes_list.min(), fitnes_list.mean(), datetime.now().strftime("%d/%m/%y %H:%M"))
             fitnes_list = self.get_all_fitnes(mutated_pop)
 
@@ -49,11 +34,21 @@ class GeneticAlgorithm:
                 best_solution[1] = fitnes_list.min()
                 best_solution[2] = np.array(mutated_pop)[fitnes_list.min() == fitnes_list]
 
+            self.solution_history.append(self.get_solution_indexes(best_solution[2][0]))
             progenitor_list = self.progenitor_selection(population_set, fitnes_list)
             new_population_set = self.mate_population(progenitor_list)
 
             mutated_pop = self.mutate_population(new_population_set)
         return best_solution
+
+    def get_solution_indexes(self, solution):
+        solution_i = []
+        for city in solution:
+            row = self.cities[self.cities["name"] == city]
+            city_i = row.index.values[0]
+            solution_i.append(city_i)
+        return solution_i
+
 
 
     # Function to compute the distance between two points
@@ -75,12 +70,12 @@ class GeneticAlgorithm:
         return np.array(population_set)
 
     def fitness_eval(self, city_list):
-        total = 0
-        for i in range(self.n_cities - 1):
-            a = city_list[i]
-            b = city_list[i + 1]
-            total += self.compute_city_distance_names(a, b)
-        return total
+        return sum(
+            map(
+                lambda a: self.compute_city_distance_names(*a),
+                zip(city_list, city_list[:-1])
+            )
+        )
 
     def get_all_fitnes(self, population_set):
         fitnes_list = np.zeros(self.n_population)
@@ -142,3 +137,5 @@ class GeneticAlgorithm:
             mutated_pop.append(self.mutate_offspring(offspring))
         return mutated_pop
 
+    def animateSolutions(self):
+        animateTSP(self.solution_history, self.cities.values, 150)
