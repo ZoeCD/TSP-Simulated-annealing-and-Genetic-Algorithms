@@ -7,7 +7,6 @@ def vectorToDistMatrix(cities):
     '''
     Create the distance matrix
     '''
-    distance_matrix = np.zeros(shape=(32, 32))
     coordinates = cities[:, :2].copy()
     cortes_penalty = cities[:, 2:3].copy()
     mexico_penalty = cities[:, 3:4].copy()

@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from Algorithms import SimulatedAnnealing
+from Algorithms import SimulatedAnnealing, GeneticAlgorithm
 from Helpers import CityGenerator
 
 
@@ -11,32 +11,35 @@ def main():
 
 
 
-    '''set the simulated annealing algorithm params'''
-    temp = 1000
-    stopping_temp = 0.00000001
-    alpha = 0.9995
-    stopping_iter = 10000000
+    # '''set the simulated annealing algorithm params'''
+    # temp = 1000
+    # stopping_temp = 0.00000001
+    # alpha = 0.9995
+    # stopping_iter = 10000000
+    #
+    # '''set the dimensions of the grid'''
+    # size_width = 200
+    # size_height = 200
+    #
+    # '''set the number of nodes'''
+    # population_size = 32
+    #
+    # '''generate random list of nodes'''
+    # cities = CityGenerator(size_width, size_height, population_size).generate()
+    #
+    # '''run simulated annealing algorithm with 2-opt'''
+    # sa = SimulatedAnnealing(cities, temp, alpha, stopping_temp, stopping_iter)
+    # sa.anneal()
+    #
+    # '''animate'''
+    # sa.animateSolutions()
+    #
+    # '''show the improvement over time'''
+    # sa.plotLearning()
 
-    '''set the dimensions of the grid'''
-    size_width = 200
-    size_height = 200
-
-    '''set the number of nodes'''
-    population_size = 32
-
-    '''generate random list of nodes'''
-    cities = CityGenerator(size_width, size_height, population_size).generate()
-
-    '''run simulated annealing algorithm with 2-opt'''
-    sa = SimulatedAnnealing(cities, temp, alpha, stopping_temp, stopping_iter)
-    sa.anneal()
-
-    '''animate'''
-    sa.animateSolutions()
-
-    '''show the improvement over time'''
-    sa.plotLearning()
-
+    cities = pd.read_csv("Data/cities.csv")
+    solution = GeneticAlgorithm(cities).initiate()
+    print(solution)
 
 if __name__ == '__main__':
     main()
