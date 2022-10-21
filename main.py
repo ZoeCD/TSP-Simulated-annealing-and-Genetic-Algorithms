@@ -6,7 +6,8 @@ from Helpers import CityGenerator
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--algorithm', default='annealing', dest='algorithm', type=str)
+    parser.add_argument('--algorithm', default='genetic',
+                        dest='algorithm', type=str)
     args = parser.parse_args()
 
     cities = pd.read_csv("Data/cities.csv")
@@ -26,10 +27,12 @@ def main():
         population_size = 32
 
         '''generate random list of nodes'''
-        cities = CityGenerator(size_width, size_height, population_size).generate()
+        cities = CityGenerator(size_width, size_height,
+                               population_size).generate()
 
         '''run simulated annealing algorithm with 2-opt'''
-        sa = SimulatedAnnealing(cities, temp, alpha, stopping_temp, stopping_iter)
+        sa = SimulatedAnnealing(cities, temp, alpha,
+                                stopping_temp, stopping_iter)
         sa.anneal()
 
         '''animate'''
@@ -40,11 +43,16 @@ def main():
 
     elif args.algorithm == 'genetic':
         gen = GeneticAlgorithm(cities)
-        solution = gen.initiate()
+        try:
+            gen.initiate()
+        except KeyboardInterrupt:
+            pass
+        print("\nBest route:", gen.best_route)
         '''animate'''
         gen.animateSolutions()
     else:
         raise ValueError("Please set a valid option")
+
 
 if __name__ == '__main__':
     main()
